@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    @apply bg-rich text-gray-100;
+  }
+  
+  body {
+    @apply min-h-screen bg-gradient-to-b from-rich via-oxford to-yale;
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-oxford/20 backdrop-blur-lg border border-yale/20 hover:border-yale/30 transition-all duration-300;
+  }
+  
+  .glass-input {
+    @apply bg-oxford/30 backdrop-blur-sm border border-yale/20 text-white placeholder-gray-400 focus:border-yale/40;
+  }
+
+  .btn {
+    @apply px-4 py-2 rounded-xl font-medium transition-all duration-300 active:scale-95;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-yale to-oxford hover:from-yale/80 hover:to-oxford/80 text-white shadow-lg shadow-yale/20;
+  }
+
+  .btn-secondary {
+    @apply bg-oxford/30 hover:bg-oxford/40 border border-yale/20 hover:border-yale/30;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-mikado via-gold to-mikado bg-clip-text text-transparent;
+    background-size: 200% auto;
+    animation: shine 8s linear infinite;
+  }
+
+  .hover-card {
+    @apply transition-all duration-300;
+    transform: translateZ(0);
+  }
+  
+  .hover-card:hover {
+    transform: translateZ(0) translateY(-2px);
+    @apply shadow-[0_8px_30px_rgba(0,53,102,0.2)];
+  }
+
+  .mobile-menu {
+    @apply fixed bottom-0 left-0 right-0 bg-rich/95 backdrop-blur-xl border-t border-yale/20 py-2 px-4 z-50;
+  }
+}
+
+@keyframes shine {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-1.5;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-rich;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-yale to-oxford rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply from-yale/80 to-oxford/80;
+}
